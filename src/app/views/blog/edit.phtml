@@ -1,0 +1,20 @@
+<?php
+$data = json_decode($data, true);
+?>
+<form action = "/blog/update?id=<?php echo $data['id'] ?>" method = 'post' class = 'm-5'>
+  <!-- Title input -->
+  <h3 class = 'text-center mb-5'>Edit blog</h3>
+  <div class="form-outline mb-4" >
+    <input type="text" name = 'title' class="form-control" value = "<?php echo $data['title']?>"/>
+    <label class="form-label" >Title</label>
+  </div>
+
+  <!-- Content input -->
+  <div class="form-outline mb-4">
+    <textarea class="form-control" name = 'content' rows="4"><?php echo $data['content']?></textarea>
+    <label class="form-label" >Write your blog</label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Update Blog</button>
+</form>
