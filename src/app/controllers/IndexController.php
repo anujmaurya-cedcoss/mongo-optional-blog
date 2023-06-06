@@ -48,4 +48,10 @@ class IndexController extends Controller
             die;
         }
     }
+
+    public function logoutAction()
+    {
+        session_unset();
+        session_destroy();
+    }
 }

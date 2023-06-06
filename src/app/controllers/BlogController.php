@@ -20,17 +20,21 @@ class BlogController extends Controller
         // redirected to view
     }
 
+    public function getData($id)
+    {
+        return  $this->mongo->blogs->findOne(['id' => (string)$id]);
+    }
     public function displaySingleAction()
     {
         $id = $_GET['id'];
-        $output = $this->mongo->blogs->findOne(['id' => (string)$id]);
+        $output = $this->getData($id);
         $this->view->data = json_encode($output);
     }
 
     public function editAction()
     {
         $id = $_GET['id'];
-        $output = $this->mongo->blogs->findOne(['id' => (string)$id]);
+        $output = $this->mongo->getData($id);
         $this->view->data = json_encode($output);
     }
 
